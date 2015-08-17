@@ -1,0 +1,14 @@
+---
+
+- name: run localegen
+  sudo: yes
+  locale_gen: name="{{ locale }}" state=present
+
+- name: fixup /etc/default/locale
+  sudo: yes
+  template:
+    src=locale-ubuntu.j2
+    dest=/etc/default/locale
+    owner=root
+    group=root
+    mode=0644
