@@ -2,7 +2,7 @@
 
 - name: run localegen
   sudo: yes
-  locale_gen: name="{{ locale }}" state=present
+  locale_gen: name="{{ aussielunix_locale }}" state=present
 
 - name: fixup /etc/default/locale
   sudo: yes

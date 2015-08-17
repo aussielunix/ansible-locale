@@ -10,7 +10,7 @@ Role Variables
 --------------
 
 ```
-locale: en_AU.UTF-8
+aussielunix_locale: en_AU.UTF-8
 ```
 
 Dependencies
@@ -23,7 +23,7 @@ Example Playbook
 
     - hosts: all
       roles:
-         - { role: aussielunix.locale, locale: en_AU.UTF-8 }
+         - { role: aussielunix.locale, aussielunix_locale: en_AU.UTF-8 }
 
 License
 -------
@@ -34,4 +34,4 @@ Author Information
 ------------------
 
 Mick Pollard
-@aussielunix
+@aussielunix (twitter, gmail, github, linkedin)
