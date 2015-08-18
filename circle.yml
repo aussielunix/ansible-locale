@@ -11,9 +11,6 @@ machine:
     PLAYBOOK: tests/test.yml
 
 test:
-  pre:
-    - "{ echo '[defaults]'; echo 'roles_path = ../'; } >> tests/ansible.cfg"
-
   override:
     # Install dependencies
     - ansible-playbook -i tests/inventory $PLAYBOOK --syntax-check
