@@ -5,3 +5,13 @@
   remote_user: root
   roles:
     - aussielunix.locale
+
+- hosts: localhost
+  connection: local
+  remote_user: root
+  tasks:
+    - shell: locale
+      register: locale
+    - assert:
+        that:
+          - "en_AU" in locale.stdout
