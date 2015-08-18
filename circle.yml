@@ -1,0 +1,22 @@
+general:
+  build_dir: tests
+
+dependencies:
+  pre:
+    - sudo pip install PyYAML jinja2 httplib2
+    - sudo pip install ansible
+
+machine:
+  environment:
+    PLAYBOOK: tests/test.yml
+
+test:
+  pre:
+    - "{ echo '[defaults]'; echo 'roles_path = ../'; } >> tests/ansible.cfg"
+
+  override:
+    # Install dependencies
+    - ansible-playbook -i tests/inventory $PLAYBOOK --syntax-check
+    - ansible-playbook -i tests/inventory $PLAYBOOK
+    - "ansible-playbook -i tests/inventory $PLAYBOOK | grep -q 'changed=0.*failed=0' && (echo 'Idempotence test: pass' && exit 0) || (echo 'Idempotence test: fail' && exit 1)"
+    - locale
