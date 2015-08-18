@@ -8,12 +8,12 @@ dependencies:
 
 machine:
   environment:
-    PLAYBOOK: tests/test.yml
+    PLAYBOOK: test.yml
 
 test:
   override:
     # Install dependencies
-    - ansible-playbook -i tests/inventory $PLAYBOOK --syntax-check
-    - ansible-playbook -i tests/inventory $PLAYBOOK
-    - "ansible-playbook -i tests/inventory $PLAYBOOK | grep -q 'changed=0.*failed=0' && (echo 'Idempotence test: pass' && exit 0) || (echo 'Idempotence test: fail' && exit 1)"
+    - ansible-playbook -i inventory $PLAYBOOK --syntax-check
+    - ansible-playbook -i inventory $PLAYBOOK
+    - "ansible-playbook -iinventory $PLAYBOOK | grep -q 'changed=0.*failed=0' && (echo 'Idempotence test: pass' && exit 0) || (echo 'Idempotence test: fail' && exit 1)"
     - locale
