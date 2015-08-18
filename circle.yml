@@ -6,14 +6,10 @@ dependencies:
     - sudo pip install PyYAML jinja2 httplib2
     - sudo pip install ansible
 
-machine:
-  environment:
-    PLAYBOOK: test.yml
-
 test:
   override:
     # Install dependencies
-    - ansible-playbook -i inventory $PLAYBOOK --syntax-check
-    - ansible-playbook -i inventory $PLAYBOOK
-    - "ansible-playbook -iinventory $PLAYBOOK | grep -q 'changed=0.*failed=0' && (echo 'Idempotence test: pass' && exit 0) || (echo 'Idempotence test: fail' && exit 1)"
-    - locale
+    - ansible-playbook -i inventory playbook.yml --syntax-check
+    - ansible-playbook -i inventory playbook.yml
+    - "ansible-playbook -iinventory playbook.yml | grep -q 'changed=0.*failed=0' && (echo 'Idempotence test: pass' && exit 0) || (echo 'Idempotence test: fail' && exit 1)"
+    - ansible-playbook -i inventory test.yml
