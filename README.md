@@ -1,5 +1,7 @@
 # Ansible Role - Locale
 
+![Build Status](https://circleci.com/gh/aussielunix/ansible-locale/tree/master.svg?style=shield&circle-token=af1c34bff05f50824300dc8b436b9e0a6bd564da "CircleCI Build Status")
+
 This role will ensure that the various places you need to set the locale are all set to the same thing.
 
 ## Requirements
