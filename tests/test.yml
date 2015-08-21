@@ -3,9 +3,7 @@
 - hosts: localhost
   connection: local
   remote_user: root
-  tasks:
-    - shell: locale
-      register: cmd_result
-    - assert:
-        that:
-          - "'en_AU' in cmd_result.stdout"
+  vars:
+    locale: en_AU.UTF-8
+  roles:
+    - aussielunix.locale
