@@ -8,32 +8,43 @@ This role will ensure that the various places you need to set the locale are all
 
 None
 
-Role Variables
---------------
+## Role Variables
 
 ```
 aussielunix_locale: en_AU.UTF-8
 ```
 
-Dependencies
-------------
+## Dependencies
 
 None
 
-Example Playbook
-----------------
+## Example Playbook
 
     - hosts: all
       roles:
          - { role: aussielunix.locale, aussielunix_locale: en_AU.UTF-8 }
 
-License
--------
+## Hacking
+
+There is an included Vagrant setup for hacking on this module.  
+
+```
+cd tests
+source .hack.sh
+vagrant up
+ansible-playbook test.yml
+...
+vagrant destroy
+vagrant up
+ansible-playbook test.yml -vvvv
+...
+```
+
+## License
 
 BSD
 
-Author Information
-------------------
+## Author Information
 
 Mick Pollard
 @aussielunix (twitter, gmail, github, linkedin)
