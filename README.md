@@ -46,5 +46,5 @@ BSD
 
 ## Author Information
 
-Mick Pollard
+Mick Pollard  
 @aussielunix (twitter, gmail, github, linkedin)
