@@ -11,7 +11,7 @@ ansible() {
 }
 
 ansible-playbook() {
-  /usr/bin/env ansible-playbook --inventory-file=inventory --user=vagrant $@
+  /usr/bin/env ansible-playbook -e'test_host=vagrant' --inventory-file=inventory --user=vagrant $@
 }
 
 

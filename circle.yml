@@ -8,6 +8,8 @@ dependencies:
 
 test:
   override:
-    - ansible-playbook test.yml --syntax-check
-    - ansible-playbook test.yml
-    - "ansible-playbook test.yml | grep -q 'changed=0.*failed=0' && (echo 'Idempotence test: pass' && exit 0) || (echo 'Idempotence test: fail' && exit 1)"
+    environment:
+      ANSIBLE_REMOTE_USER: root
+    - ansible-playbook -e'test_host=localhost' --connection=local test.yml --syntax-check
+    - ansible-playbook -e'test_host=localhost' --connection=local test.yml
+    - "ansible-playbook -e'test_host=localhost' --connection=local test.yml | grep -q 'changed=0.*failed=0' && (echo 'Idempotence test: pass' && exit 0) || (echo 'Idempotence test: fail' && exit 1)"

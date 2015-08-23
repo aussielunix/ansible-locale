@@ -1,8 +1,6 @@
 ---
 
-- hosts: localhost
-  connection: local
-  remote_user: root
+- hosts: "{{ test_host }}"
   vars:
     locale: en_AU.UTF-8
   roles:
